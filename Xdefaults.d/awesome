@@ -1,0 +1,33 @@
+! *groud
+ *background:  #000000
+ *foreground:  #EBEBFF
+
+! black + red
+! *color0:     #3f3f3f
+ *color0:      #000000
+ *color1:      #e01010
+! green + yellow
+ *color2:      #00AA00
+ *color3:      #FFFF00
+! blue + purple
+ *color4:      #112037
+ *color5:      #A020F0
+! cyan + white
+ *color6:      #5B5BC7
+ *color7:      #fefefe
+! bright-black + bright-red
+ *color8:      #6a6a6a
+ *color9:      #FF5555
+! bright-green + bright-yellow
+ *color10:     #90EE90
+ *color11:     #ffff2f
+! bright-blue + bright-purple
+ *color12:     #5B5BC7
+ *color13:     #e628ba
+! bright-cyan + bright-white
+ *color14:     #7D7DFB
+ *color15:     #ffffff
+
+! cursor
+ *cursorColor: #DCDCCC
+! vim:syn=xdefaults ts=8 sw=3 tw=78

@@ -1,0 +1,65 @@
+! Programmer Dvorak (hhkb-style)
+!
+!  Esc & [ { } ( = * ) + ] ! # \ $
+!       ; , . p y f g c r l / @ Backspace
+!        a o e u i d h t n s -
+!         ' q j k x b m w v z
+!
+!  Esc % 7 5 3 1 9 0 2 4 6 8 ` | ~
+!       : < > P Y F G C R L ? ^ Backspace
+!        A O E U I D H T N S _
+!         " Q J K X B M W V Z
+
+! number row (15)
+keycode  9 = Escape Escape
+keycode 10 = ampersand percent
+keycode 11 = bracketleft 7
+keycode 12 = braceleft 5
+keycode 13 = braceright 3
+keycode 14 = parenleft 1
+keycode 15 = equal 9
+keycode 16 = asterisk 0
+keycode 17 = parenright 2
+keycode 18 = plus 4
+keycode 19 = bracketright 6
+keycode 20 = exclam 8
+keycode 21 = numbersign grave
+keycode 51 = backslash bar
+keycode 49 = dollar asciitilde
+! top row (13)
+keycode 24 = semicolon colon
+keycode 25 = comma less
+keycode 26 = period greater
+keycode 27 = p P
+keycode 28 = y Y
+keycode 29 = f F
+keycode 30 = g G
+keycode 31 = c C
+keycode 32 = r R
+keycode 33 = l L
+keycode 34 = slash question
+keycode 35 = at asciicircum
+keycode 22 = BackSpace BackSpace BackSpace BackSpace NoSymbol NoSymbol Terminate_Server
+! home row (11)
+keycode 38 = a A
+keycode 39 = o O
+keycode 40 = e E
+keycode 41 = u U
+keycode 42 = i I
+keycode 43 = d D
+keycode 44 = h H
+keycode 45 = t T
+keycode 46 = n N
+keycode 47 = s S
+keycode 48 = minus underscore
+! bottom row (10)
+keycode 52 = apostrophe quotedbl
+keycode 53 = q Q
+keycode 54 = j J
+keycode 55 = k K
+keycode 56 = x X
+keycode 57 = b B
+keycode 58 = m M
+keycode 59 = w W
+keycode 60 = v V
+keycode 61 = z Z

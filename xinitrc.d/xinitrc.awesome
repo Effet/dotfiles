@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# ~/.xinitrc
+
+# Fontpath for Terminus
+xset +fp /usr/share/fonts/local/
+
+# turn bell off
+xset b off
+# set mouse spead
+xset m 0 10
+# screen always light
+xset s off
+xset -dpms
+#xset dpms force off
+
+# screen lock
+xautolock -time 23 -locker xtrlock &
+
+# turn numlock on
+numlockx on
+
+setxkbmap dvorak
+# enable restart X
+setxkbmap -option terminate:ctrl_alt_bksp
+# call Xmodap for programmer dvorak
+#xmodmap $HOME/dotfiles/keymaps/hhkb-dvp.xmodmap
+
+
+# Merge .Xdefaults
+xrdb -merge $HOME/.Xdefaults
+
+# set clipboard
+#autocutsel -fork &
+#autocutsel -selection PRIMARY -fork &
+parcellite &
+
+## Set Wallpaper
+#feh --bg-max "$HOME/Docs/pics/black_than_darker/ipod_yin.png" &
+
+# Setup XIM environment, needn't if use SCIM as gtk-immodules
+eval `dbus-launch --sh-syntax --exit-with-session`
+export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+(fcitx &> /dev/null) &
+
+# Start urxvt daemon
+#urxvtd -q -f -o &
+
+dropboxd &
+# tag-based filesystem for acm/icpc
+#oyepa-filemon &
+
+xcompmgr -cF &
+conky -q -d -c ~/dotFiles/x-looks/time.conkyrc &
+
+# set cursor
+#xsetroot -cursor_name left_ptr &
+# auto hide cursor
+unclutter -noevents -idle 5 &
+
+# Start WM
+exec ck-launch-session dbus-launch awesome

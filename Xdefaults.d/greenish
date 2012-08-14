@@ -1,0 +1,33 @@
+!! Greenish theme
+
+! vim: set ft=xdefaults:
+
+*background: #111111
+*foreground: #51a366
+
+! or use :
+! urxvt -is +sb -fg '#51a366' -bg '#111111' -fn 'xft:DejaVu Sans Mono:pixelsize=11:antialias=false:autohinting=true'
+
+*color0:       #000000
+*color8:       #666666
+!! DarkRed + Red
+*color1:       #b45151
+*color9:       #fe8686
+!! DarkGreen + Green
+*color2:       #8ba574
+*color10:      #a5dca5
+!! DarkYellow + Yellow
+*color3:       Khaki3
+*color11:      #efe58b
+!! DarkBlue + Blue
+*color4:       #2797d8
+*color12:      #86cdea
+!! DarkMangenta + Mangenta
+*color5:       #aa6eaf
+*color13:      #b698b8
+!!DarkCyan + Cyan
+*color6:       #418179
+*color14:      #71bebe
+!! LightGrey + White
+*color7:       #bebebe
+*color15:      #ffffff
