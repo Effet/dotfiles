@@ -2,6 +2,7 @@
 !#include ".colors/invisibone"
 ! #include "larobina"
 #include "/home/n4k0master/dotfiles/Xdefaults.d/nnoell_mod"
+! #include "/home/n4k0master/Builds/c00kiemo5ter.file/.color_schemes/solarized"
 URxvt.background: [80]black
 
 ! Appearance
@@ -21,17 +22,13 @@ Xft.dpi:       96
 
 !urxvt*cursorUnderline:  true
 
-!  - Font
+! General
+URxvt*termName:       rxvt-unicode-256color
+URxvt.iconFile:       /usr/share/icons/gnome/32x32/apps/utilities-terminal.png
 URxvt.font: xft:Envy Code R:pixelsize=13:antialias=true\
             xft:WenQuanYi Micro Hei:pixelsize=15:antialias=true
-!URxvt.font:-*-inconsolata-medium-r-normal-*-*-*-*-*-*-*
 
-!URxvt.font:xft:DejaVu Sans Mono:pixelsize=13:antialias=true
-!URxvt.inheritPixmap: true
 
-! General
-!urxvt*termName: 	rxvt-256color
-! URxvt.iconFile:         /home/n4k0master/.icons/Faience/apps/16/terminal.png
 URxvt.preeditType:      Root
 URxvt.loginShell:       true
 URxvt.scrollBar:        false

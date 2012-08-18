@@ -83,6 +83,7 @@ export GTK_IM_MODULE=fcitx
 #export QT_IM_MODULE=fcitx
 (fcitx &> /dev/null) &
 
+(sh ~/.fehbg) &
 
 # Start WM
 exec ck-launch-session awesome

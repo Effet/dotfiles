@@ -5,14 +5,7 @@ theme = {}
 themedir = awful.util.getdir("config") .. "/themes/n4k0master"
 
 -- wallpaper
-wallpaper1 = "cirno.png"
-wallpaper2 = "touhou2.jpeg"
-wallpaper3 = "touhou3.jpg"
-wallpaper4 = "Vocaloid1.jpg"
-wallpaper5 = "cirno2.jpeg"
-wallpaper6 = "Ib1.jpg"
-wallpaper7 = "sanae1.jpg"
-theme.wallpaper_cmd = { "awsetbg -a " .. "/home/n4k0master/wallpapers/" .. wallpaper7 }
+theme.wallpaper_cmd = { "~/.fehbg" }
 
 theme.font          = "Exo Medium 10.5"
 
