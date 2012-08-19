@@ -48,9 +48,9 @@ xsetroot -cursor_name left_ptr
 #syndaemon -k -i 2 -d &
 
 # auto hide cursor
-unclutter -noevents -idle 5 &
-# screen lock
-xautolock -time 23 -locker xtrlock &
+unclutter -idle 3 -root -grab -noevents &
+# # screen lock
+# xautolock -time 23 -locker xtrlock &
 
 
 xcompmgr -cCfF -D.9 -t-5 -l-5 -r4.2 -I.07 -O.05 &
@@ -66,6 +66,7 @@ parcellite &
 volumeicon &
 
 ## Setup XIM environment
+eval `dbus-launch --sh-syntax --exit-with-session`
 export XMODIFIERS="@im=fcitx"
 # export XIM=fcitx
 # export XIM_PROGRAM=fcitx
@@ -79,4 +80,4 @@ export GTK_IM_MODULE=fcitx
 
 
 # Start WM
-exec ck-launch-session dbus-launch awesome
+exec ck-launch-session awesome
