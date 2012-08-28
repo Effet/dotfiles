@@ -9,12 +9,13 @@ theme.wallpaper_cmd = { "~/.fehbg" }
 
 theme.font          = "Exo Medium 10.5"
 
-theme.bg_normal     = "#373737"
-theme.bg_focus      = "#3377aa"
+theme.bg_normal     = "#373737AC"
+-- theme.bg_focus      = "#3377aaAA"
+theme.bg_focus      = theme.bg_normal
 theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = theme.bg_normal
 
-theme.fg_normal     = "#998877"
+theme.fg_normal     = "#aaaaaa"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffc200"
 theme.fg_minimize   = "#bbbbbb"
@@ -29,8 +30,6 @@ theme.menu_bg_nomal     = theme.bg_normal
 theme.menu_border_color = theme.border_normal
 theme.menu_height = "20"
 theme.menu_width  = "150"
-
--- theme.useless_gap_width = "3"
 
 
 -- Hint for "whether this frame in another tag"
@@ -51,7 +50,7 @@ theme.layout_floating   = themedir .. "/layouts-huge/floating.png"
 
 -- Menu Icons
 -- theme.awesome_icon      = themedir .. "/logo/awesome-blue.png"
-theme.awesome_icon      = "/usr/share/awesome/icons/awesome32.png"
+theme.awesome_icon      = themedir .. "/logo/gentoo.png"
 theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
 
 return theme

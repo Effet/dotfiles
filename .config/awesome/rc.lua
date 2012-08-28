@@ -41,6 +41,7 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+
 -- Themes define colours, icons, and wallpapers
 beautiful.init(awful.util.getdir("config") .. "/themes/n4k0master/theme.lua")
 
@@ -60,7 +61,7 @@ modkey = "Mod4"
 -- TODO Seems Gentoo's problem.
 dmenu = "/home/n4k0master/Scripts/" .. "dmenu_run -b -f -i -p 'Run command:' -nb '#1a1a1a' -nf '#cfcfcf' -sb '#696cae' -sf '#ffffff' -fn 'envy code R-9'"
 
-screenshot_cmd = "scrot -e 'mv $f ~/Dropbox/Docs/pics/screenshots/ 2>/dev/null'"
+screenshot_cmd = "scrot -e 'mv $f ~/Dropbox/Pictures/screenshots/ 2>/dev/null'"
 screenlock_cmd = "xtrlock"
 volume_up      = "amixer set Master 9%+"
 volume_down    = "amixer set Master 9%-"
@@ -89,6 +90,7 @@ layouts =
     --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
 }
+
 -- }}}
 
 -- {{{ Tags
@@ -148,6 +150,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
+
 -- https://github.com/Saint0fCloud/home/blob/master/.config/awesome/rc.lua
 separator = widget({ type = "textbox" })
 separator.text = "<span color='#ec3b89'>/</span>"
@@ -258,28 +261,29 @@ for s = 1, screen.count() do
     mywibox[s] = awful.wibox({ position = "top", height = beautiful.menu_height, screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
-        {
-            -- mylauncher,
-            mytaglist[s],
-            mypromptbox[s],
-	    mylayoutbox[s],
-	    spacer, separator, spacer,
-            layout = awful.widget.layout.horizontal.leftright
-        },
-        s == 1 and mysystray or nil,
-	spacer,
-	datewidget,
-	spacer, separator, spacer,
-	-- batwidget,
-	-- spacer, separator,
-	volwidget,
-	spacer,
-        -- mytextclock,
+       {
+          mylauncher,
+          mytaglist[s],
+          mypromptbox[s],
+          mylayoutbox[s],
+          spacer, separator, spacer,
+          layout = awful.widget.layout.horizontal.leftright
+       },
+       s == 1 and mysystray or nil,
+       spacer, separator, spacer,
+       datewidget,
+       spacer, separator, spacer,
+       -- batwidget,
+       -- spacer, separator,
+       volwidget,
+       spacer,
+       -- mytextclock,
 
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.rightleft
+       mytasklist[s],
+       layout = awful.widget.layout.horizontal.rightleft
     }
 end
+
 -- }}}
 
 -- {{{ Mouse bindings
@@ -291,6 +295,7 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
+
 globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
@@ -458,9 +463,11 @@ clientbuttons = awful.util.table.join(
 
 -- Set keys
 root.keys(globalkeys)
+
 -- }}}
 
 -- {{{ Rules
+
 -- get class name $ xprop
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -484,8 +491,6 @@ awful.rules.rules = {
     { rule = { class = "operapluginwrapper-native" },
       properties = {
          floating = true,
-         maximized_vertical = true,
-         maximized_horizontal = true
       } },
 
     { rule = { class = "pinentry" },
@@ -536,26 +541,24 @@ awful.rules.rules = {
          floating = true,
       } },
 
+    
     -- terminals
     { rule = { class = "URxvt" },
       properties = {
-                     --floating = true,
-                     -- opacity = 0.9,
-                     size_hints_honor = false
-                   } },
-
+         size_hints_honor = false
+      } },
 
     -- editors
     { rule = { class = "Emacs" },
       properties = {
-	             -- opacity = 0.9,
-                     size_hints_honor = false
-                   } },
+         size_hints_honor = false
+      } },
 }
 
 -- }}}
 
 -- {{{ Signals
+
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
     -- Add a titlebar
@@ -582,6 +585,13 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.add_signal("focus", function(c)
+                     c.border_color = beautiful.border_focus
+                     -- c.opacity = 1
+                           end)
+client.add_signal("unfocus", function(c)
+                     c.border_color = beautiful.border_normal
+                     -- c.opacity = 0.7
+                             end)
+
 -- }}}
