@@ -3,7 +3,7 @@
 ! #include "larobina"
 #include "/home/n4k0master/dotfiles/Xdefaults.d/nnoell_mod"
 ! #include "/home/n4k0master/Builds/c00kiemo5ter.file/.color_schemes/solarized"
-URxvt.background: [80]black
+URxvt.background: [75]black
 
 ! Appearance
 !  - XFT

@@ -5,6 +5,7 @@
 
 export PATH=~/Scripts/:~/Scripts/acm/:$PATH
 export EDITOR='emacsclient -c -a emacs'
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # History
 export HISTSIZE=1000

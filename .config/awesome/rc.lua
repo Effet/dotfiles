@@ -488,7 +488,7 @@ awful.rules.rules = {
     -- Flashplayer fullscreen
     { rule = { class = "Exe" },
       properties = { floating = true } },
-    { rule = { class = "operapluginwrapper-native" },
+    { rule = { class = "Operapluginwrapper-native" },
       properties = {
          floating = true,
       } },

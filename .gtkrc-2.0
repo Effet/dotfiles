@@ -1,5 +1,8 @@
 # Use Emacs-style keybinding
 include "/usr/share/themes/Emacs/gtk-2.0-key/gtkrc"
 
-gtk-theme-name = "Clearlooks"
-gtk-icon-theme-name = "Faenza-Dark"
+# gtk-theme-name = "Clearlooks"
+# gtk-icon-theme-name = "Faenza-Dark"
+
+gtk-theme-name = "elementary"
+gtk-icon-theme-name = "elementary-mono-dark"
