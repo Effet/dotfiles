@@ -68,7 +68,8 @@ volumeicon &
 # keylogger
 /usr/local/bin/WhatPulse &
 
-((killall emacs ; emacs --daemon) && emacsclient -c) &
+# ((killall emacs ; emacs --daemon) && emacsclient -c) &
+(killall emacs ; emacs --daemon) &
 
 ## Setup XIM environment
 eval `dbus-launch --sh-syntax --exit-with-session`
