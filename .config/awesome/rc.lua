@@ -349,13 +349,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    -- #35 is plus, #48 is minus (in dvorak)
-    awful.key({ modkey,           }, "#35",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "#48",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "#35",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "#48",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "#35",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "#48",     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, "=",     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, "-",     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, "Shift"   }, "=",     function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Shift"   }, "-",     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, "Control" }, "=",     function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control" }, "-",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 

@@ -9,9 +9,8 @@ theme.wallpaper_cmd = { "~/.fehbg" }
 
 theme.font          = "Exo Medium 10.5"
 
-theme.bg_normal     = "#373737AA"
--- theme.bg_focus      = "#3377aa"
-theme.bg_focus      = "#337"
+theme.bg_normal     = "#373737"
+theme.bg_focus      = "#3377aa"
 theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = theme.bg_normal
 
