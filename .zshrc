@@ -3,13 +3,14 @@
 
 # {{{ Environmental Variables
 
-export PATH=~/Scripts/:~/Scripts/acm/:$PATH
-export EDITOR='emacsclient -c -a emacs'
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+PATH=~/Scripts/:~/Scripts/acm/:$PATH
+EDITOR='emacsclient -c -a emacs'
+GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # History
-export HISTSIZE=1000
-export SAVEHIST=1000
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 # }}}
 # {{{ Functions/Alias
