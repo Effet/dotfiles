@@ -60,6 +60,5 @@ export XMODIFIERS="@im=fcitx"
 #compton &
 
 # Start WM
-#exec ~/wms/monsterwm2bar
-#exec ~/wms/wmrun.sh
-exec i3
+echo "Starting at $(date)" >> $HOME/.i3/log
+exec i3 -V -d all >> $HOME/.i3/log
