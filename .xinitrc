@@ -60,5 +60,6 @@ export XMODIFIERS="@im=fcitx"
 #compton &
 
 # Start WM
-echo "Starting at $(date)" >> $HOME/.i3/log
-exec i3 -V -d all >> $HOME/.i3/log
+#echo "Starting at $(date)" >> $HOME/.i3/log
+#exec i3 -V -d all >> $HOME/.i3/log
+exec i3
