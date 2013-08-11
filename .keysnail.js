@@ -51,6 +51,73 @@ hook.setHook('KeyBoardQuit', function (aEvent) {
 
 
 
+// Hok
+
+key.setViewKey('f', function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hok - Foreground hint mode', true);
+
+key.setViewKey('F', function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'HoK - Background hint mode', true);
+
+key.setViewKey(';', function (aEvent, aArg) {
+    ext.exec("hok-start-extended-mode", aArg);
+}, 'HoK - Extented hint mode', true);
+
+key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
+    ext.exec("hok-start-continuous-mode", aArg);
+}, 'Start continuous HaH', true);
+
+
+// Unfu*k your enemies
+
+plugins.options["unfuck_your_enemies.site_info"] = {
+    "http://github\\.com/[^/]+/[^/]+/raw/.+/([^?]+)": {
+        xpi: ["application/zip", "attachment"]
+    },
+
+    "http://[^\.]+\\.googlecode\\.com/issues/attachment?(?:.*&name|name)=([^&]+)": {
+        vimp : ["text/plain", "inline"],
+        js   : ["text/plain", "inline"]
+    },
+
+    "http://[^\.]+\\.googlecode\\.com/files/([^?]+)": {
+        vimp : "text/plain",
+        js   : "text/plain",
+    }
+};
+
+
+// Tanything
+
+key.setViewKey("a", function (ev, arg) {
+    ext.exec("tanything", arg);
+}, "view all tabs", true);
+
+plugins.options["tanything_opt.keymap"] = {
+    "C-z"   : "prompt-toggle-edit-mode",
+    "SPC"   : "prompt-next-page",
+    "b"     : "prompt-previous-page",
+    "j"     : "prompt-next-completion",
+    "k"     : "prompt-previous-completion",
+    "g"     : "prompt-beginning-of-candidates",
+    "G"     : "prompt-end-of-candidates",
+    "D"     : "prompt-cancel",
+    // Tanything specific actions
+    "O"     : "localOpen",
+    "q"     : "localClose",
+    "p"     : "localLeftclose",
+    "n"     : "localRightclose",
+    "a"     : "localAllclose",
+    "d"     : "localDomainclose",
+    "c"     : "localClipUT",
+    "C"     : "localClipU",
+    "e"     : "localMovetoend"
+};
+
+
+
 // ============================= Key bindings ============================== //
 
 key.setGlobalKey(['C-x', 'k'], function (ev) {
@@ -152,22 +219,6 @@ key.setGlobalKey('C-M-l', function (ev) {
 key.setGlobalKey('C-M-h', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'Select previous tab');
-
-key.setViewKey('f', function (aEvent, aArg) {
-    ext.exec("hok-start-foreground-mode", aArg);
-}, 'Hok - Foreground hint mode', true);
-
-key.setViewKey('F', function (aEvent, aArg) {
-    ext.exec("hok-start-background-mode", aArg);
-}, 'HoK - Background hint mode', true);
-
-key.setViewKey(';', function (aEvent, aArg) {
-    ext.exec("hok-start-extended-mode", aArg);
-}, 'HoK - Extented hint mode', true);
-
-key.setViewKey(['C-c', 'C-e'], function (aEvent, aArg) {
-    ext.exec("hok-start-continuous-mode", aArg);
-}, 'Start continuous HaH', true);
 
 key.setViewKey('d', function (ev) {
     BrowserCloseTabOrWindow();
@@ -397,6 +448,14 @@ key.setEditKey('M-n', function (ev) {
 key.setEditKey('M-p', function (ev) {
     command.walkInputElement(command.elementsRetrieverTextarea, false, true);
 }, 'Focus to the previous text area');
+
+key.setViewKey('i', function (ev, arg) {
+    util.setBoolPref("accessibility.browsewithcaret", true);
+}, 'Enter to caret mode', true);
+
+key.setCaretKey('i', function (ev, arg) {
+    util.setBoolPref("accessibility.browsewithcaret", false);
+}, 'Leave from caret mode', true);
 
 key.setCaretKey([['C-a'], ['^']], function (ev) {
     ev.target.ksMarked ? goDoCommand("cmd_selectBeginLine") : goDoCommand("cmd_beginLine");
