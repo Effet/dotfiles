@@ -261,7 +261,7 @@ key.setEditKey('C-M-y', function (ev) {
     if (!command.kill.ring.length) return;
 
     let (ct = command.getClipboardText())
-        (!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
+    (!command.kill.ring.length || ct != command.kill.ring[0]) && command.pushKillRing(ct);
 
     prompt.selector({
         message: "Paste:",
@@ -365,14 +365,14 @@ key.setEditKey('C-n', function (ev) {
     command.nextLine(ev);
 }, 'Next line');
 key.setCaretKey([['C-n'], ['j']], function (ev) {
-    command.nextLine(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectLineNext") : command.nextLine(ev);
 }, 'Move caret to the next line');
 
 key.setEditKey('C-p', function (ev) {
     command.previousLine(ev);
 }, 'Previous line');
 key.setCaretKey([['C-p'], ['k']], function (ev) {
-    command.previousLine(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectLinePrevious") : command.previousLine(ev);
 }, 'Move caret to the previous line');
 
 key.setEditKey('C-f', function (ev) {
@@ -407,28 +407,28 @@ key.setEditKey('C-v', function (ev) {
     command.pageDown(ev);
 }, 'Page down');
 key.setCaretKey([['C-v'], ['SPC']], function (ev) {
-    command.pageDown(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectPageNext") : command.pageDown(ev);
 }, 'Move caret down by page');
 
 key.setEditKey('M-v', function (ev) {
     command.pageUp(ev);
 }, 'Page up');
 key.setCaretKey([['M-v'], ['b']], function (ev) {
-    command.pageUp(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectPagePrevious") : command.pageUp(ev);
 }, 'Move caret up by page');
 
 key.setEditKey('M-<', function (ev) {
     command.moveTop(ev);
 }, 'Beginning of the text area');
 key.setCaretKey([['M-<'], ['g']], function (ev) {
-    command.moveTop(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectTop") : goDoCommand("cmd_scrollTop");
 }, 'Move caret to the top of the page');
 
 key.setEditKey('M->', function (ev) {
     command.moveBottom(ev);
 }, 'End of the text area');
 key.setCaretKey([['M->'], ['G']], function (ev) {
-    command.moveBottom(ev);
+    ev.target.ksMarked ? goDoCommand("cmd_selectBottom") : goDoCommand("cmd_scrollBottom");
 }, 'Move caret to the end of the line');
 
 //// text edting -------------------------------------------------------------
