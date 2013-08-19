@@ -61,8 +61,10 @@ export XMODIFIERS="@im=fcitx"
 
 # Start WM
 case "$WM" in
-  i3)
-    exec i3
-  *)
-    exec i3
+    i3)
+        exec i3
+        ;;
+    *)
+        exec i3
+        ;;
 esac
