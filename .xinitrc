@@ -6,8 +6,8 @@
 #    http://git.sysphere.org/dotfiles/tree/xinitrc
 
 
-# Merge .Xdefaults
-xrdb -merge $HOME/.Xdefaults
+# Merge .Xresources
+[[ -r "$HOME/.Xresources" ]] && xrdb -merge "$HOME/.Xresources"
 
 # # turn numlock on
 # numlockx on
@@ -60,6 +60,9 @@ export XMODIFIERS="@im=fcitx"
 #compton &
 
 # Start WM
-#echo "Starting at $(date)" >> $HOME/.i3/log
-#exec i3 -V -d all >> $HOME/.i3/log
-exec i3
+case "$WM" in
+  i3)
+    exec i3
+  *)
+    exec i3
+esac
