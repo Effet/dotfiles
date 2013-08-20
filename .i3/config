@@ -55,6 +55,8 @@ bindsym $mod+m exec dmenu_run
 
 # gmrun
 bindsym $mod+g exec gmrun
+# interrobang
+bindsym $mod+i exec interrobang
 
 # change focus
 bindsym $mod+h focus left
