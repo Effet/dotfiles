@@ -1,0 +1,98 @@
+out_to_x no
+out_to_console yes
+short_units yes
+update_interval 1
+
+TEXT
+
+[\
+# Kernel:
+{"full_text":"KERNEL","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${kernel}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# Volume:
+#{"full_text":"${if_running pulseaudio}${if_existing /usr/bin/pamixer}"},\
+#{"full_text":"VOLUME","color":"\#888888","separator":false,"separator_block_width":6},\
+#{"full_text":"${if_match "${exec pamixer --get-mute}"=="false"}"},\
+#{"full_text":"${exec pamixer --get-volume}","color":"\#AAF096","separator":false,"separator_block_width":0},\
+#{"full_text":"%","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"MUTE","color":"\#FF3333","separator":false,"separator_block_width":6},\
+#{"full_text":"${endif}${endif}${endif}"},\
+# CPU temperature:
+{"full_text":"CPU TEMP","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${hwmon 2 temp 2}<45}${hwmon 2 temp 2}","color":"\#AAF096","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 2 temp 2}<50}${hwmon 2 temp 2}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 2 temp 2}<55}${hwmon 2 temp 2}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 2 temp 2}>=55}${hwmon 2 temp 2}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"°C","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# GFX temperature:
+{"full_text":"GFX TEMP","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${hwmon temp 1}<50}${hwmon temp 1}","color":"\#AAF096","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}<55}${hwmon temp 1}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}<60}${hwmon temp 1}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}>=60}${hwmon temp 1}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"°C","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# Download:
+{"full_text":"DOWN","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${downspeedf wlp1s0}<100}${downspeed wlp1s0}","color":"\#AAF096","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf wlp1s0}<300}${downspeed wlp1s0}","color":"\#68B1E8","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf wlp1s0}<700}${downspeed wlp1s0}","color":"\#DB70B8","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf wlp1s0}<1000}${downspeed wlp1s0}","color":"\#9470DB","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf wlp1s0}>=1000}${downspeed wlp1s0}","color":"\#FF3333","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
+# Upload:
+{"full_text":"UP","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${upspeedf wlp1s0}<15}${upspeed wlp1s0}","color":"\#AAF096","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf wlp1s0}<35}${upspeed wlp1s0}","color":"\#9470DB","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf wlp1s0}>=35}${upspeed wlp1s0}","color":"\#FF3333","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}"},\
+# Memory:
+{"full_text":"MEM","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${memperc}<30}${memeasyfree}","color":"\#AAF096","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}<60}${memeasyfree}","color":"\#F0DC64","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}<85}${memeasyfree}","color":"\#FF9933","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}>=85}${memeasyfree}","color":"\#FF3333","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+# CPU:
+{"full_text":"CPU","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${cpu cpu0}<25}${cpu cpu0}","color":"\#AAF096","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<50}${cpu cpu0}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<75}${cpu cpu0}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<=100}${cpu cpu0}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"%","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# Date:
+{"full_text":"DATE","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${time %D}","color":"\#EEEEEE","separator":false,"separator_block_width":6},\
+# Time:
+{"full_text":"TIME","color":"\#888888","separator":false,"separator_block_width":6},\
+{"full_text":"${time %r}","color":"\#EEEEEE","separator":false}\
+],
+
+# Local Variables:
+# mode: conf
+# eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
+# truncate-lines: t
+# End:
