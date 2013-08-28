@@ -42,6 +42,8 @@ for_window [class="Gmrun"] floating enable
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+# termite
+bindsym $mod+t exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -143,6 +145,12 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
+# resize window outer resize-mode
+bindsym $mod+Control+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+j resize grow height 10 px or 10 ppt
+bindsym $mod+Control+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Control+l resize grow width 10 px or 10 ppt
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -183,7 +191,8 @@ bar {
     #font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
     #font pango:berry 7
     position bottom
-    status_command i3status
+    #status_command i3status
+    status_command $HOME/.i3/i3bar-conky
 }
 
 # Local Variables:
