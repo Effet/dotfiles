@@ -44,7 +44,15 @@ key.setViewKey('f', function (aEvent, aArg) {
     ext.exec("hok-start-foreground-mode", aArg);
 }, 'Hok - Foreground hint mode', true);
 
+key.setCaretKey('f', function (aEvent, aArg) {
+    ext.exec("hok-start-foreground-mode", aArg);
+}, 'Hok - Foreground hint mode', true);
+
 key.setViewKey('F', function (aEvent, aArg) {
+    ext.exec("hok-start-background-mode", aArg);
+}, 'HoK - Background hint mode', true);
+
+key.setCaretKey('F', function (aEvent, aArg) {
     ext.exec("hok-start-background-mode", aArg);
 }, 'HoK - Background hint mode', true);
 
@@ -52,7 +60,15 @@ key.setViewKey(';', function (aEvent, aArg) {
     ext.exec("hok-start-extended-mode", aArg);
 }, 'HoK - Extented hint mode', true);
 
+key.setCaretKey(';', function (aEvent, aArg) {
+    ext.exec('hok-start-extended-mode', aArg);
+}, 'HoK - Extented hint mode', true);
+
 key.setViewKey(['C-c', 'C-f'], function (aEvent, aArg) {
+    ext.exec("hok-start-continuous-mode", aArg);
+}, 'Start continuous HaH', true);
+
+key.setCaretKey(['C-c', 'C-f'], function (aEvent, aArg) {
     ext.exec("hok-start-continuous-mode", aArg);
 }, 'Start continuous HaH', true);
 
