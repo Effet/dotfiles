@@ -1,5 +1,5 @@
 !  - color scheme
-#include "/home/n4k0master/dotfiles/.term_colors.d/nnoell_mod"
+#include ".colors/nnoell_mod"
 URxvt.background: [75]black
 
 ! Appearance
