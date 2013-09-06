@@ -1,25 +1,16 @@
-#!/bin/sh
-#
-# ~/.xinitrc
-#
-# Many thanks to:
-#    http://git.sysphere.org/dotfiles/tree/xinitrc
-
+#!/bin/bash
 
 # Merge .Xresources
 [[ -r "$HOME/.Xresources" ]] && xrdb -merge "$HOME/.Xresources"
 
-# # turn numlock on
-# numlockx on
+# turn numlock on
+#numlockx on
 
 # turn bell off
 xset b off
 
-# screen always light
-xset s off
-xset -dpms
-#xset dpms force off
-#xset dpms 1800 3600 7200
+# Energy Star on, standby/suspend/off
+xset dpms 1800 3600 7200
 
 # Keyboard control, repeat delay and repeat rate
 xset r rate 200 30
@@ -58,6 +49,9 @@ export XMODIFIERS="@im=fcitx"
 
 #dunst &
 #compton &
+
+#xset 180 120
+xss-lock -- i3lock &
 
 # Start WM
 case "$WM" in
