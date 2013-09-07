@@ -18,6 +18,8 @@ xset r rate 200 30
 # Pointer control, acceleration and threshold
 xset m 3/2 4
 
+setxkbmap -option ctrl:nocaps
+
 # Pointer appearance
 #   - xcb does not support Xcursor yet
 xsetroot -cursor_name left_ptr
@@ -26,7 +28,9 @@ xsetroot -cursor_name left_ptr
 syndaemon -k -i 1 -d &
 
 # auto hide cursor
-#unclutter -idle 3 -root -grab -noevents &
+unclutter -idle 3 -root -grab -noevents &
+
+xss-lock -- i3lock -n -i $HOME/pics/Color_1024x600.png &
 
 # set clipboard
 #parcellite &
@@ -38,8 +42,6 @@ syndaemon -k -i 1 -d &
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
-setxkbmap -option ctrl:nocaps
-
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -50,14 +52,19 @@ export XMODIFIERS="@im=fcitx"
 #dunst &
 #compton &
 
-#xset 180 120
-xss-lock -- i3lock &
-
 # Start WM
 case "$WM" in
     i3)
         exec i3
         ;;
+    bspwm)
+        export PANEL_FIFO=/tmp/panel-fifo
+	[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+	mkfifo "$PANEL_FIFO"
+	panel &
+        sxhkd &
+	exec bspwm -s "$PANEL_FIFO" -p W
+	;;
     *)
         exec i3
         ;;
