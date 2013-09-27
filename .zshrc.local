@@ -1,0 +1,5 @@
+PATH=$PATH:/sbin:/usr/sbin
+
+alias rscp='rsync -av --progress --stats'
+
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
