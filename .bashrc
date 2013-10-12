@@ -36,3 +36,33 @@ PS1="\[${txtblk}\]\w\[${txtrst}\] \[${txtblu}\]>\[${txtrst}\] "
 PS2="\[${txtblk}\]. \[${txtrst}\]"
 
 
+## Alias
+alias ls='ls -b -CF --color=auto'
+alias ll='ls -l'
+alias lh='ls -Alh'
+alias cls='clear;ls'
+alias cll='clear;ll'
+
+alias grep='grep --color=auto'
+alias igrep='grep -i'
+
+alias r='fc -s'
+
+alias vi='vim'
+
+alias em='emacsclient -nc -a ""'
+alias emc='emacsclient -t -a ""'
+#alias kem='emacsclient -e "(save-buffers-kill-emacs)"'
+alias kem='emacsclient -e "(kill-emacs)"'
+
+alias rscp='rsync -av --progress --stats'
+
+# http://emacs-fu.blogspot.com/2011/12/system-administration-with-emacs.html
+alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+
+
+## Functions
+mkcd() { mkdir -p "$*" && cd "$*";}
+
+# Remove current directory if empty
+rmcdir() { cd ..; rmdir $OLDPWD || cd $OLDPWD;}
