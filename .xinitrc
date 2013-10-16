@@ -43,28 +43,28 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-(fcitx &> /dev/null) &
-
-
 #dunst &
 #compton &
 
-# Start WM
+
+## Spawn Apps
+(emacs --daemon) &
+(fcitx &> /dev/null) &
+
+
+## Start WM
 case "$WM" in
     i3)
         exec i3
         ;;
     bspwm)
         export PANEL_FIFO=/tmp/panel-fifo
-	[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-	mkfifo "$PANEL_FIFO"
-	panel &
+        [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+        mkfifo "$PANEL_FIFO"
+        panel &
         sxhkd &
-	exec bspwm -s "$PANEL_FIFO" -p W
-	;;
+        exec bspwm -s "$PANEL_FIFO" -p W
+        ;;
     *)
         exec i3
         ;;

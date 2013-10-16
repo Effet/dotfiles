@@ -66,3 +66,7 @@ mkcd() { mkdir -p "$*" && cd "$*";}
 
 # Remove current directory if empty
 rmcdir() { cd ..; rmdir $OLDPWD || cd $OLDPWD;}
+
+check_cmd_exist() {
+    type "$1" >/dev/null 2>&1
+}
