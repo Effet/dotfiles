@@ -70,3 +70,12 @@ rmcdir() { cd ..; rmdir $OLDPWD || cd $OLDPWD;}
 check_cmd_exist() {
     type "$1" >/dev/null 2>&1
 }
+
+# Delete orphans in archlinux -> https://github.com/tonkazoid/dots/blob/master/.bashrc#L37-L43
+orphans() {
+    if [[ ! -n $(pacman -Qdt) ]]; then
+        echo "No orphans to remove."
+    else
+        sudo pacman -Rs $(pacman -Qdtq)
+    fi
+}
