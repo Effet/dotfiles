@@ -39,6 +39,7 @@ PS2="\[${txtblk}\]. \[${txtrst}\]"
 ## Alias
 alias ls='ls -b -CF --color=auto'
 alias ll='ls -l'
+alias l='ll'
 alias lh='ls -Alh'
 alias cls='clear;ls'
 alias cll='clear;ll'
