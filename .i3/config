@@ -150,9 +150,12 @@ mode "(E)xit, (R)eboot, (P)oweroff" {
 bindsym $mod+Shift+e mode "(E)xit, (R)eboot, (P)oweroff"
 
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute && notify-volume.sh
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && notify-volume.sh
+bindsym XF86AudioMute exec amixer -q set Master toggle && notify-volume.sh
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-brightness.sh
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-brightness.sh
 
 bindsym $mod+F10 exec i3lock
 
@@ -201,6 +204,7 @@ bindsym $mod+r mode "resize"
 bar {
     #font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
     #font pango:berry 7
+    font pango:DejaVu Sans Mono, Ionicons, FontAwesome 9
     position bottom
     #status_command i3status
     status_command $HOME/.i3/i3bar-conky

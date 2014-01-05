@@ -1,0 +1,264 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 2.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+[
+## Wireless
+    {
+        "full_text": "W: (${wireless_link_qual_perc wlp3s0}% at ${wireless_essid wlp3s0}) ${addr wlp3s0}"
+    },
+## Download
+    {
+        "full_text": "DOWN",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${downspeed wlp3s0}",
+        "min_width": "1.33M",
+        "color":
+        ${if_match ${downspeedf wlp3s0}<100}
+        "\#AAF096"
+        ${else} ${if_match ${downspeedf wlp3s0}<300}
+        "\#68B1E8"
+        ${else} ${if_match ${downspeedf wlp3s0}<700}
+        "\#DB70B8"
+        ${else} ${if_match ${downspeedf wlp3s0}<1000}
+        "\#9470DB"
+        ${else}
+        "\#FF3333"
+        ${endif}
+        ${endif}
+        ${endif}
+        ${endif}
+    },
+
+# Upload
+    {
+        "full_text": "UP",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${upspeed wlp3s0}",
+        "min_width": "1.33K",
+        "color":
+        ${if_match ${upspeedf wlp3s0}<15}
+        "\#AAF096"
+        ${else} ${if_match ${upspeedf wlp3s0}<35}
+        "\#9470DB"
+        ${else}
+        "\#FF3333"
+        ${endif}
+        ${endif}
+    },
+
+## CPU TEMP
+    {
+        "full_text": "CPU TEMP",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${platform coretemp.0 temp 1}°C",
+        "min_width": "100°C",
+        "color":
+        ${if_match ${platform coretemp.0 temp 1}<45}
+        "\#AAF096"
+        ${else}
+        ${if_match ${platform coretemp.0 temp 1}<50}
+        "\#F0DC64"
+        ${else}
+        ${if_match ${platform coretemp.0 temp 1}<55}
+        "\#FF9933"
+        ${else}
+        "\#FF3333"
+        ${endif}
+        ${endif}
+        ${endif}
+    },
+
+## CPU
+    {
+        "full_text": "CPU",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${cpu cpu0}%",
+        "min_width": "100%",
+        "color":
+        ${if_match ${cpu cpu0}<25}
+        "\#AAF096"
+        ${else}
+        ${if_match ${cpu cpu0}<50}
+        "\#F0DC64"
+        ${else}
+        ${if_match ${cpu cpu0}<75}
+        "\#FF9933"
+        ${else}
+        "\#FF3333"
+        ${endif}
+        ${endif}
+        ${endif}
+    },
+
+## Memory
+    {
+        "full_text": "MEM",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${memeasyfree}",
+        "min_width": "4.00G",
+        "color":
+        ${if_match ${memperc}<30}
+        "\#AAF096"
+        ${else}
+        ${if_match ${memperc}<60}
+        "\#F0DC64"
+        ${else}
+        ${if_match ${memperc}<85}
+        "\#FF9933"
+        ${else}
+        "\#FF3333"
+        ${endif}
+        ${endif}
+        ${endif}
+    },
+
+## Battery
+    {
+        "full_text": "BAT",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+# AC adapter
+    ${if_match "${acpiacadapter AC}" == "on-line"}
+    {
+        "full_text": "AC ",
+        "color": "\#EEEEEE",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    ${else}
+    {
+        "full_text": "OFF",
+        "color": "\#FF3333",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    ${endif}
+# battery percent
+    ${if_match "${battery BAT0}" == "charged"}
+    {
+        "full_text": "FUL",
+        "color": "\#AAF096"
+    },
+    ${else}
+    {
+        "full_text": "${battery_percent BAT0}%",
+        "min_width": "99%",
+        "color":
+        ${if_match ${battery_percent BAT0}<10}
+        "\#FF3333"
+        ${else} ${if_match ${battery_percent BAT0}<30}
+        "\#FF9933"
+        ${else} ${if_match ${battery_percent BAT0}<90}
+        "\#F0DC64"
+        ${else}
+        "\#AAF096"
+        ${endif}
+        ${endif}
+        ${endif}
+    },
+    ${endif}
+
+## Uptime
+#    {
+#        "full_text": "UPTIME",
+#        "color": "\#888888",
+#        "separator": false,
+#        "separator_block_width": 6
+#    },
+#    {
+#        "full_text": "${uptime_short}"
+#    },
+
+## VOLUME
+    {
+        "full_text": "VOL",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    ${if_match "${exec amixer get Master | egrep -o 'off'}" == "off"}
+    {
+        "full_text": "MUTE",
+        "color": "\#FF3333"
+    },
+    ${else}
+    {
+        "full_text": "${exec amixer get Master | egrep -o '[0-9]+%'}",
+        "color": "\#AAF096",
+        "min_width": "100%"
+    },
+    ${endif}
+
+## TIME
+    {
+        "full_text": "${time %d %b}",
+        "color": "\#888888",
+        "separator": false,
+        "separator_block_width": 6
+    },
+    {
+        "full_text": "${time %R}",
+        "color": "\#EEEEEE"
+    }
+],
+
+# Local Variables:
+# mode: json
+# eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
+# truncate-lines: t
+# End:
