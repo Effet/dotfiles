@@ -36,6 +36,12 @@ PS1="\[${txtblk}\]\w\[${txtrst}\] \[${txtblu}\]>\[${txtrst}\] "
 PS2="\[${txtblk}\]. \[${txtrst}\]"
 
 
+## Environment
+#@see http://wiki.gentoo.org/wiki/Wine#Disabling_the_Menubuilder
+# Prevent Wine from adding menu entries and desktop links.
+export WINEDLLOVERRIDES='winemenubuilder.exe=d'
+
+
 ## Alias
 alias ls='ls -b -CF --color=auto'
 alias ll='ls -l'
