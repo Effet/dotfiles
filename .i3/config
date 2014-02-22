@@ -37,6 +37,8 @@ for_window [class="Vlc"] floating enable
 for_window [class="MPlayer"] floating enable
 for_window [class="Firefox"] floating enable
 for_window [class="Firefox" instance="Navigator"] floating disable
+assign [class="Chromium"] 2
+for_window [class="Chromium"] border 1pixel
 for_window [class="fontforg"] floating enable
 for_window [class="Gmrun"] floating enable
 
