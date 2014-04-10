@@ -41,6 +41,10 @@ PS2="\[${txtblk}\]. \[${txtrst}\]"
 # Prevent Wine from adding menu entries and desktop links.
 export WINEDLLOVERRIDES='winemenubuilder.exe=d'
 
+export PATH=$HOME/.rvm/bin:$PATH
+
+export JAVA_HOME=$HOME/opt/jdk1.6.0_45/
+export M2_HOME=/opt/maven/
 
 ## Alias
 alias ls='ls -b -CF --color=auto'
