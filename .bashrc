@@ -41,13 +41,14 @@ PS2="\[${txtblk}\]. \[${txtrst}\]"
 # Prevent Wine from adding menu entries and desktop links.
 export WINEDLLOVERRIDES='winemenubuilder.exe=d'
 
-export PATH=$HOME/.rvm/bin:$PATH
+#export PATH=$HOME/.rvm/bin:$PATH
 
-export JAVA_HOME=$HOME/opt/jdk1.6.0_45/
-export M2_HOME=/opt/maven/
+#export JAVA_HOME=$HOME/opt/jdk1.6.0_45/
+#export M2_HOME=/opt/maven/
 
 ## Alias
-alias ls='ls -b -CF --color=auto'
+alias ls='`which ls` --color=auto'
+#alias ls='ls -b -CF --color=auto'
 alias ll='ls -l'
 alias l='ll'
 alias lh='ls -Alh'
@@ -71,6 +72,8 @@ alias rscp='rsync -av --progress --stats'
 # http://emacs-fu.blogspot.com/2011/12/system-administration-with-emacs.html
 alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
 
+# http://ruslanspivak.com/2010/10/12/pretty-print-json-from-the-command-line/
+alias pp='python -mjson.tool'
 
 ## Functions
 mkcd() { mkdir -p "$*" && cd "$*";}
