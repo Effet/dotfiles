@@ -1,0 +1,6 @@
+**/*_local
+**/.env.local
+**/*.secrets
+**/*.age
+**/*.gpg
+
