@@ -28,8 +28,8 @@ The bootstrap script installs GNU Stow if missing and then stows the provided di
 
 ## Updating or Extending
 - After editing a tracked file, just commit the change—the symlink stays in place.
-- To restow everything (for example, after pulling new commits), rerun `./bootstrap.sh` or `stow zsh ghostty`.
-- To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run `stow nvim`.
+- To restow everything (for example, after pulling new commits), rerun `./bootstrap.sh` or `stow -t "$HOME" zsh ghostty`.
+- To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run `stow -t "$HOME" nvim`.
 
 ## Troubleshooting Tips
 - If you see missing command errors in zsh, ensure the related packages are installed via Homebrew.
