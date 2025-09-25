@@ -1,0 +1,14 @@
+{
+  "~e" = "noop:";
+  "~f" = "moveWordForward:";
+  "~b" = "moveWordBackward:";
+  "~d" = "deleteWordForward:";
+
+  "~<" = "moveToBeginningOfDocument:";
+  "~>" = "moveToEndOfDocument:";
+  "~v" = "pageUp:";
+  "^v" = "pageDown:";
+  "^/" = "undo:";
+  "~/" = "complete:";
+  "^j" = "insertNewline:";
+}

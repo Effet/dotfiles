@@ -5,6 +5,7 @@ A small collection of personal configuration files tailored for macOS. The setup
 ## Directories at a Glance
 - `zsh/.zshrc` — Enables the `pure` prompt, zsh completions, and integrations with `fzf`, `zoxide`, `direnv`, and `asdf`.
 - `ghostty/.config/ghostty/config` — Ghostty terminal profile with Apple System Colors Light, Iosevka Term/PingFang fonts, and split-window tweaks.
+- `macos/Library/KeyBindings/DefaultKeyBinding.dict` — Custom macOS text-editing shortcuts (mirrors `~/Library/KeyBindings`).
 
 ## Requirements
 - macOS with [Homebrew](https://brew.sh/)
@@ -24,11 +25,11 @@ cd ~/.dotfiles
 # Symlink the tracked dotfiles into $HOME
 ./bootstrap.sh
 ```
-The bootstrap script installs GNU Stow if missing and then stows the provided directories into your home folder.
+The bootstrap script installs GNU Stow if missing and then stows the provided directories into your home folder. On macOS that now includes `macos/Library/KeyBindings` so the system keybinding dictionary stays version-controlled.
 
 ## Updating or Extending
 - After editing a tracked file, just commit the change—the symlink stays in place.
-- To restow everything (for example, after pulling new commits), rerun `./bootstrap.sh` or `stow -t "$HOME" zsh ghostty`.
+- To restow everything (for example, after pulling new commits), rerun `./bootstrap.sh` or `stow -t "$HOME" zsh ghostty macos`.
 - To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run `stow -t "$HOME" nvim`.
 
 ## Troubleshooting Tips
