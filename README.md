@@ -6,6 +6,7 @@ A small collection of personal configuration files tailored for macOS. The setup
 - `zsh/.zshrc` — Enables the `pure` prompt, zsh completions, and integrations with `fzf`, `zoxide`, `direnv`, and `asdf`.
 - `ghostty/.config/ghostty/config` — Ghostty terminal profile with Apple System Colors Light, Iosevka Term/PingFang fonts, and split-window tweaks.
 - `macos/Library/KeyBindings/DefaultKeyBinding.dict` — Custom macOS text-editing shortcuts (mirrors `~/Library/KeyBindings`).
+- `fd/.fdignore` — Global ignore rules for `fd` (stowed to `~/.fdignore`).
 
 ## Requirements
 - macOS with [Homebrew](https://brew.sh/)
@@ -26,16 +27,16 @@ cd ~/.dotfiles
 brew install stow
 
 # Preview links (dry run)
-stow -nvt "$HOME" zsh ghostty macos
+stow -nvt "$HOME" zsh ghostty macos fd
 
 # Apply symlinks
-stow -t "$HOME" zsh ghostty macos
+stow -t "$HOME" zsh ghostty macos fd
 ```
 Use the dry run to catch conflicts before creating real symlinks. The macOS package mirrors `~/Library/KeyBindings` so your text-editing shortcuts stay version-controlled.
 
 ## Updating or Extending
 - After editing a tracked file, just commit the change—the symlink stays in place.
-- To restow everything (for example, after pulling new commits), rerun `stow -t "$HOME" zsh ghostty macos`.
+- To restow everything (for example, after pulling new commits), rerun `stow -t "$HOME" zsh ghostty macos fd`.
 - To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run a dry run followed by `stow -t "$HOME" nvim`.
 
 ## Troubleshooting Tips

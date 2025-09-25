@@ -1,0 +1,15 @@
+Applications/
+Library/
+Desktop/
+Documents/
+Downloads/
+Pictures/
+.Trash/
+.cache/
+.venv/
+venv/
+node_modules/
+target/
+.git/
+.DS_Store
+.idea/
