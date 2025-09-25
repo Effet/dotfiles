@@ -2,6 +2,11 @@ autoload -U promptinit; promptinit
 prompt pure
 
 autoload -Uz compinit; compinit
+
+# Match word movement behavior with Bash
+autoload -U select-word-style
+select-word-style bash
+
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
