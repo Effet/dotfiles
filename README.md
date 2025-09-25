@@ -9,7 +9,7 @@ A small collection of personal configuration files tailored for macOS. The setup
 
 ## Requirements
 - macOS with [Homebrew](https://brew.sh/)
-- [`stow`](https://www.gnu.org/software/stow/) (installed automatically by the bootstrap script)
+- [`stow`](https://www.gnu.org/software/stow/) (`brew install stow`)
 - CLI tooling used by the shell profile:
   - `pure` prompt (`brew install pure` or `npm install --global pure-prompt`)
   - `fzf`, `zoxide`, `direnv`, `asdf`
@@ -22,19 +22,25 @@ A small collection of personal configuration files tailored for macOS. The setup
 git clone git@github.com:effet/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# Symlink the tracked dotfiles into $HOME
-./bootstrap.sh
+# Ensure GNU Stow is available
+brew install stow
+
+# Preview links (dry run)
+stow -nvt "$HOME" zsh ghostty macos
+
+# Apply symlinks
+stow -t "$HOME" zsh ghostty macos
 ```
-The bootstrap script installs GNU Stow if missing and then stows the provided directories into your home folder. On macOS that now includes `macos/Library/KeyBindings` so the system keybinding dictionary stays version-controlled.
+Use the dry run to catch conflicts before creating real symlinks. The macOS package mirrors `~/Library/KeyBindings` so your text-editing shortcuts stay version-controlled.
 
 ## Updating or Extending
 - After editing a tracked file, just commit the change—the symlink stays in place.
-- To restow everything (for example, after pulling new commits), rerun `./bootstrap.sh` or `stow -t "$HOME" zsh ghostty macos`.
-- To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run `stow -t "$HOME" nvim`.
+- To restow everything (for example, after pulling new commits), rerun `stow -t "$HOME" zsh ghostty macos`.
+- To add a new tool, create a directory (e.g. `nvim/`) that mirrors the desired structure under `$HOME`, drop the config inside, then run a dry run followed by `stow -t "$HOME" nvim`.
 
 ## Troubleshooting Tips
 - If you see missing command errors in zsh, ensure the related packages are installed via Homebrew.
-- When Stow reports conflicts, remove or back up the existing dotfiles in `$HOME` before re-running the script.
+- When Stow reports conflicts, remove or back up the existing dotfiles in `$HOME` before re-running the command.
 
 ## License
 Released under the MIT License; see [LICENSE](LICENSE) for full terms.
