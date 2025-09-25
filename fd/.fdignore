@@ -4,6 +4,9 @@ Desktop/
 Documents/
 Downloads/
 Pictures/
+Movies/
+Music/
+Public/
 .Trash/
 .cache/
 .venv/
@@ -13,3 +16,6 @@ target/
 .git/
 .DS_Store
 .idea/
+.asdf/
+.codex/
+.npm/
