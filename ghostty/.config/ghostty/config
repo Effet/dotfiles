@@ -14,3 +14,8 @@ cursor-style-blink = true
 shell-integration-features = no-cursor
 
 macos-option-as-alt = left
+
+window-width = 139
+window-height = 45
+#https://github.com/ghostty-org/ghostty/issues/1392
+#window-inherit-working-directory = false
